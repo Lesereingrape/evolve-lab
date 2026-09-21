@@ -1,0 +1,2325 @@
+{
+  "config": {
+    "n_jobs": 30,
+    "generations": 150,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "n_train": 120,
+    "n_test": 200
+  },
+  "baselines_heldout": {
+    "FIFO": 3893.58,
+    "SPT": 2440.17,
+    "EDD": 2919.01,
+    "WSPT": 1716.17,
+    "MINSLACK": 3135.98
+  },
+  "main": {
+    "curve_train": [
+      {
+        "generation": 0,
+        "mean": 2767.779,
+        "std": 227.731
+      },
+      {
+        "generation": 1,
+        "mean": 2131.516,
+        "std": 91.164
+      },
+      {
+        "generation": 2,
+        "mean": 2085.613,
+        "std": 95.299
+      },
+      {
+        "generation": 3,
+        "mean": 1935.227,
+        "std": 68.019
+      },
+      {
+        "generation": 4,
+        "mean": 1855.881,
+        "std": 44.389
+      },
+      {
+        "generation": 5,
+        "mean": 1855.881,
+        "std": 44.389
+      },
+      {
+        "generation": 6,
+        "mean": 1836.285,
+        "std": 40.838
+      },
+      {
+        "generation": 7,
+        "mean": 1836.285,
+        "std": 40.838
+      },
+      {
+        "generation": 8,
+        "mean": 1836.285,
+        "std": 40.838
+      },
+      {
+        "generation": 9,
+        "mean": 1836.285,
+        "std": 40.838
+      },
+      {
+        "generation": 10,
+        "mean": 1828.064,
+        "std": 36.817
+      },
+      {
+        "generation": 11,
+        "mean": 1807.497,
+        "std": 38.437
+      },
+      {
+        "generation": 12,
+        "mean": 1796.152,
+        "std": 26.838
+      },
+      {
+        "generation": 13,
+        "mean": 1796.152,
+        "std": 26.838
+      },
+      {
+        "generation": 14,
+        "mean": 1796.152,
+        "std": 26.838
+      },
+      {
+        "generation": 15,
+        "mean": 1796.152,
+        "std": 26.838
+      },
+      {
+        "generation": 16,
+        "mean": 1789.216,
+        "std": 24.124
+      },
+      {
+        "generation": 17,
+        "mean": 1786.077,
+        "std": 20.629
+      },
+      {
+        "generation": 18,
+        "mean": 1786.077,
+        "std": 20.629
+      },
+      {
+        "generation": 19,
+        "mean": 1786.077,
+        "std": 20.629
+      },
+      {
+        "generation": 20,
+        "mean": 1786.077,
+        "std": 20.629
+      },
+      {
+        "generation": 21,
+        "mean": 1784.163,
+        "std": 23.215
+      },
+      {
+        "generation": 22,
+        "mean": 1784.163,
+        "std": 23.215
+      },
+      {
+        "generation": 23,
+        "mean": 1780.412,
+        "std": 19.733
+      },
+      {
+        "generation": 24,
+        "mean": 1780.412,
+        "std": 19.733
+      },
+      {
+        "generation": 25,
+        "mean": 1780.412,
+        "std": 19.733
+      },
+      {
+        "generation": 26,
+        "mean": 1780.412,
+        "std": 19.733
+      },
+      {
+        "generation": 27,
+        "mean": 1778.842,
+        "std": 18.535
+      },
+      {
+        "generation": 28,
+        "mean": 1778.842,
+        "std": 18.535
+      },
+      {
+        "generation": 29,
+        "mean": 1778.842,
+        "std": 18.535
+      },
+      {
+        "generation": 30,
+        "mean": 1778.085,
+        "std": 18.026
+      },
+      {
+        "generation": 31,
+        "mean": 1773.196,
+        "std": 16.127
+      },
+      {
+        "generation": 32,
+        "mean": 1773.196,
+        "std": 16.127
+      },
+      {
+        "generation": 33,
+        "mean": 1773.196,
+        "std": 16.127
+      },
+      {
+        "generation": 34,
+        "mean": 1773.196,
+        "std": 16.127
+      },
+      {
+        "generation": 35,
+        "mean": 1767.316,
+        "std": 23.896
+      },
+      {
+        "generation": 36,
+        "mean": 1761.027,
+        "std": 32.508
+      },
+      {
+        "generation": 37,
+        "mean": 1761.027,
+        "std": 32.508
+      },
+      {
+        "generation": 38,
+        "mean": 1761.027,
+        "std": 32.508
+      },
+      {
+        "generation": 39,
+        "mean": 1761.027,
+        "std": 32.508
+      },
+      {
+        "generation": 40,
+        "mean": 1755.747,
+        "std": 36.92
+      },
+      {
+        "generation": 41,
+        "mean": 1748.294,
+        "std": 31.471
+      },
+      {
+        "generation": 42,
+        "mean": 1736.25,
+        "std": 48.426
+      },
+      {
+        "generation": 43,
+        "mean": 1726.067,
+        "std": 41.187
+      },
+      {
+        "generation": 44,
+        "mean": 1726.067,
+        "std": 41.187
+      },
+      {
+        "generation": 45,
+        "mean": 1726.067,
+        "std": 41.187
+      },
+      {
+        "generation": 46,
+        "mean": 1726.067,
+        "std": 41.187
+      },
+      {
+        "generation": 47,
+        "mean": 1722.665,
+        "std": 38.697
+      },
+      {
+        "generation": 48,
+        "mean": 1722.665,
+        "std": 38.697
+      },
+      {
+        "generation": 49,
+        "mean": 1722.665,
+        "std": 38.697
+      },
+      {
+        "generation": 50,
+        "mean": 1718.213,
+        "std": 35.778
+      },
+      {
+        "generation": 51,
+        "mean": 1718.213,
+        "std": 35.778
+      },
+      {
+        "generation": 52,
+        "mean": 1713.305,
+        "std": 42.679
+      },
+      {
+        "generation": 53,
+        "mean": 1704.803,
+        "std": 39.285
+      },
+      {
+        "generation": 54,
+        "mean": 1704.803,
+        "std": 39.285
+      },
+      {
+        "generation": 55,
+        "mean": 1704.803,
+        "std": 39.285
+      },
+      {
+        "generation": 56,
+        "mean": 1704.803,
+        "std": 39.285
+      },
+      {
+        "generation": 57,
+        "mean": 1703.81,
+        "std": 39.111
+      },
+      {
+        "generation": 58,
+        "mean": 1703.81,
+        "std": 39.111
+      },
+      {
+        "generation": 59,
+        "mean": 1703.81,
+        "std": 39.111
+      },
+      {
+        "generation": 60,
+        "mean": 1703.81,
+        "std": 39.111
+      },
+      {
+        "generation": 61,
+        "mean": 1703.81,
+        "std": 39.111
+      },
+      {
+        "generation": 62,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 63,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 64,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 65,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 66,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 67,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 68,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 69,
+        "mean": 1692.672,
+        "std": 27.968
+      },
+      {
+        "generation": 70,
+        "mean": 1683.892,
+        "std": 25.252
+      },
+      {
+        "generation": 71,
+        "mean": 1683.892,
+        "std": 25.252
+      },
+      {
+        "generation": 72,
+        "mean": 1683.892,
+        "std": 25.252
+      },
+      {
+        "generation": 73,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 74,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 75,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 76,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 77,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 78,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 79,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 80,
+        "mean": 1679.379,
+        "std": 19.92
+      },
+      {
+        "generation": 81,
+        "mean": 1668.043,
+        "std": 12.293
+      },
+      {
+        "generation": 82,
+        "mean": 1668.043,
+        "std": 12.293
+      },
+      {
+        "generation": 83,
+        "mean": 1668.043,
+        "std": 12.293
+      },
+      {
+        "generation": 84,
+        "mean": 1663.955,
+        "std": 7.711
+      },
+      {
+        "generation": 85,
+        "mean": 1663.955,
+        "std": 7.711
+      },
+      {
+        "generation": 86,
+        "mean": 1663.955,
+        "std": 7.711
+      },
+      {
+        "generation": 87,
+        "mean": 1663.955,
+        "std": 7.711
+      },
+      {
+        "generation": 88,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 89,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 90,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 91,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 92,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 93,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 94,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 95,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 96,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 97,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 98,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 99,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 100,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 101,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 102,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 103,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 104,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 105,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 106,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 107,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 108,
+        "mean": 1661.114,
+        "std": 5.926
+      },
+      {
+        "generation": 109,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 110,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 111,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 112,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 113,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 114,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 115,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 116,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 117,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 118,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 119,
+        "mean": 1656.915,
+        "std": 7.633
+      },
+      {
+        "generation": 120,
+        "mean": 1652.79,
+        "std": 12.234
+      },
+      {
+        "generation": 121,
+        "mean": 1652.79,
+        "std": 12.234
+      },
+      {
+        "generation": 122,
+        "mean": 1650.561,
+        "std": 15.08
+      },
+      {
+        "generation": 123,
+        "mean": 1650.561,
+        "std": 15.08
+      },
+      {
+        "generation": 124,
+        "mean": 1650.561,
+        "std": 15.08
+      },
+      {
+        "generation": 125,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 126,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 127,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 128,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 129,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 130,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 131,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 132,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 133,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 134,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 135,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 136,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 137,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 138,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 139,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 140,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 141,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 142,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 143,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 144,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 145,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 146,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 147,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 148,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 149,
+        "mean": 1645.781,
+        "std": 10.524
+      },
+      {
+        "generation": 150,
+        "mean": 1645.781,
+        "std": 10.524
+      }
+    ],
+    "curve_heldout": [
+      {
+        "generation": 0,
+        "mean": 2800.156,
+        "std": 241.568
+      },
+      {
+        "generation": 1,
+        "mean": 2156.791,
+        "std": 151.291
+      },
+      {
+        "generation": 2,
+        "mean": 2114.514,
+        "std": 128.181
+      },
+      {
+        "generation": 3,
+        "mean": 1964.184,
+        "std": 131.458
+      },
+      {
+        "generation": 4,
+        "mean": 1869.028,
+        "std": 17.035
+      },
+      {
+        "generation": 5,
+        "mean": 1869.028,
+        "std": 17.035
+      },
+      {
+        "generation": 6,
+        "mean": 1854.675,
+        "std": 34.623
+      },
+      {
+        "generation": 7,
+        "mean": 1854.675,
+        "std": 34.623
+      },
+      {
+        "generation": 8,
+        "mean": 1854.675,
+        "std": 34.623
+      },
+      {
+        "generation": 9,
+        "mean": 1854.675,
+        "std": 34.623
+      },
+      {
+        "generation": 10,
+        "mean": 1842.311,
+        "std": 38.049
+      },
+      {
+        "generation": 11,
+        "mean": 1822.958,
+        "std": 24.788
+      },
+      {
+        "generation": 12,
+        "mean": 1811.921,
+        "std": 17.934
+      },
+      {
+        "generation": 13,
+        "mean": 1811.921,
+        "std": 17.934
+      },
+      {
+        "generation": 14,
+        "mean": 1811.921,
+        "std": 17.934
+      },
+      {
+        "generation": 15,
+        "mean": 1811.921,
+        "std": 17.934
+      },
+      {
+        "generation": 16,
+        "mean": 1803.172,
+        "std": 27.838
+      },
+      {
+        "generation": 17,
+        "mean": 1800.174,
+        "std": 27.315
+      },
+      {
+        "generation": 18,
+        "mean": 1800.174,
+        "std": 27.315
+      },
+      {
+        "generation": 19,
+        "mean": 1800.174,
+        "std": 27.315
+      },
+      {
+        "generation": 20,
+        "mean": 1800.174,
+        "std": 27.315
+      },
+      {
+        "generation": 21,
+        "mean": 1800.462,
+        "std": 27.659
+      },
+      {
+        "generation": 22,
+        "mean": 1800.462,
+        "std": 27.659
+      },
+      {
+        "generation": 23,
+        "mean": 1798.398,
+        "std": 27.699
+      },
+      {
+        "generation": 24,
+        "mean": 1798.398,
+        "std": 27.699
+      },
+      {
+        "generation": 25,
+        "mean": 1798.398,
+        "std": 27.699
+      },
+      {
+        "generation": 26,
+        "mean": 1798.398,
+        "std": 27.699
+      },
+      {
+        "generation": 27,
+        "mean": 1794.222,
+        "std": 28.703
+      },
+      {
+        "generation": 28,
+        "mean": 1794.222,
+        "std": 28.703
+      },
+      {
+        "generation": 29,
+        "mean": 1794.222,
+        "std": 28.703
+      },
+      {
+        "generation": 30,
+        "mean": 1795.036,
+        "std": 28.414
+      },
+      {
+        "generation": 31,
+        "mean": 1790.952,
+        "std": 30.28
+      },
+      {
+        "generation": 32,
+        "mean": 1790.952,
+        "std": 30.28
+      },
+      {
+        "generation": 33,
+        "mean": 1790.952,
+        "std": 30.28
+      },
+      {
+        "generation": 34,
+        "mean": 1790.952,
+        "std": 30.28
+      },
+      {
+        "generation": 35,
+        "mean": 1779.608,
+        "std": 14.417
+      },
+      {
+        "generation": 36,
+        "mean": 1779.6,
+        "std": 14.406
+      },
+      {
+        "generation": 37,
+        "mean": 1779.6,
+        "std": 14.406
+      },
+      {
+        "generation": 38,
+        "mean": 1779.6,
+        "std": 14.406
+      },
+      {
+        "generation": 39,
+        "mean": 1779.6,
+        "std": 14.406
+      },
+      {
+        "generation": 40,
+        "mean": 1771.153,
+        "std": 5.408
+      },
+      {
+        "generation": 41,
+        "mean": 1768.23,
+        "std": 9.486
+      },
+      {
+        "generation": 42,
+        "mean": 1756.683,
+        "std": 13.034
+      },
+      {
+        "generation": 43,
+        "mean": 1745.597,
+        "std": 12.466
+      },
+      {
+        "generation": 44,
+        "mean": 1745.597,
+        "std": 12.466
+      },
+      {
+        "generation": 45,
+        "mean": 1745.597,
+        "std": 12.466
+      },
+      {
+        "generation": 46,
+        "mean": 1745.597,
+        "std": 12.466
+      },
+      {
+        "generation": 47,
+        "mean": 1739.556,
+        "std": 4.987
+      },
+      {
+        "generation": 48,
+        "mean": 1739.556,
+        "std": 4.987
+      },
+      {
+        "generation": 49,
+        "mean": 1739.556,
+        "std": 4.987
+      },
+      {
+        "generation": 50,
+        "mean": 1736.583,
+        "std": 9.136
+      },
+      {
+        "generation": 51,
+        "mean": 1736.583,
+        "std": 9.136
+      },
+      {
+        "generation": 52,
+        "mean": 1729.57,
+        "std": 10.507
+      },
+      {
+        "generation": 53,
+        "mean": 1720.842,
+        "std": 19.087
+      },
+      {
+        "generation": 54,
+        "mean": 1720.842,
+        "std": 19.087
+      },
+      {
+        "generation": 55,
+        "mean": 1720.842,
+        "std": 19.087
+      },
+      {
+        "generation": 56,
+        "mean": 1720.842,
+        "std": 19.087
+      },
+      {
+        "generation": 57,
+        "mean": 1719.802,
+        "std": 20.368
+      },
+      {
+        "generation": 58,
+        "mean": 1719.802,
+        "std": 20.368
+      },
+      {
+        "generation": 59,
+        "mean": 1719.802,
+        "std": 20.368
+      },
+      {
+        "generation": 60,
+        "mean": 1719.802,
+        "std": 20.368
+      },
+      {
+        "generation": 61,
+        "mean": 1719.802,
+        "std": 20.368
+      },
+      {
+        "generation": 62,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 63,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 64,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 65,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 66,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 67,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 68,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 69,
+        "mean": 1709.077,
+        "std": 10.908
+      },
+      {
+        "generation": 70,
+        "mean": 1701.558,
+        "std": 21.26
+      },
+      {
+        "generation": 71,
+        "mean": 1701.558,
+        "std": 21.26
+      },
+      {
+        "generation": 72,
+        "mean": 1701.558,
+        "std": 21.26
+      },
+      {
+        "generation": 73,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 74,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 75,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 76,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 77,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 78,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 79,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 80,
+        "mean": 1695.818,
+        "std": 19.909
+      },
+      {
+        "generation": 81,
+        "mean": 1686.369,
+        "std": 24.328
+      },
+      {
+        "generation": 82,
+        "mean": 1686.369,
+        "std": 24.328
+      },
+      {
+        "generation": 83,
+        "mean": 1686.369,
+        "std": 24.328
+      },
+      {
+        "generation": 84,
+        "mean": 1681.696,
+        "std": 27.764
+      },
+      {
+        "generation": 85,
+        "mean": 1681.696,
+        "std": 27.764
+      },
+      {
+        "generation": 86,
+        "mean": 1681.696,
+        "std": 27.764
+      },
+      {
+        "generation": 87,
+        "mean": 1681.696,
+        "std": 27.764
+      },
+      {
+        "generation": 88,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 89,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 90,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 91,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 92,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 93,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 94,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 95,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 96,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 97,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 98,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 99,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 100,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 101,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 102,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 103,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 104,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 105,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 106,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 107,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 108,
+        "mean": 1679.217,
+        "std": 30.02
+      },
+      {
+        "generation": 109,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 110,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 111,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 112,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 113,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 114,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 115,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 116,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 117,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 118,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 119,
+        "mean": 1673.966,
+        "std": 35.476
+      },
+      {
+        "generation": 120,
+        "mean": 1671.242,
+        "std": 38.568
+      },
+      {
+        "generation": 121,
+        "mean": 1671.242,
+        "std": 38.568
+      },
+      {
+        "generation": 122,
+        "mean": 1670.397,
+        "std": 39.553
+      },
+      {
+        "generation": 123,
+        "mean": 1670.397,
+        "std": 39.553
+      },
+      {
+        "generation": 124,
+        "mean": 1670.397,
+        "std": 39.553
+      },
+      {
+        "generation": 125,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 126,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 127,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 128,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 129,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 130,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 131,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 132,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 133,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 134,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 135,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 136,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 137,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 138,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 139,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 140,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 141,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 142,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 143,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 144,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 145,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 146,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 147,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 148,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 149,
+        "mean": 1665.119,
+        "std": 40.749
+      },
+      {
+        "generation": 150,
+        "mean": 1665.119,
+        "std": 40.749
+      }
+    ],
+    "start": 2767.779,
+    "final_train": 1645.781,
+    "final_heldout": 1665.12,
+    "reduction_vs_start_pct": 39.8,
+    "gain_vs_best_baseline_pct": 3.0,
+    "evolved_weights_mean": {
+      "inv_proc": 1.564,
+      "weight": 0.257,
+      "slack": 0.089,
+      "wratio": 7.447,
+      "arrival": -0.047
+    }
+  },
+  "ablation_mode": {
+    "population_heldout": 1665.12,
+    "hill_climb_heldout": 1860.95,
+    "hill_climb_curve": [
+      {
+        "generation": 0,
+        "mean": 4963.07,
+        "std": 1464.245
+      },
+      {
+        "generation": 1,
+        "mean": 4920.125,
+        "std": 1445.041
+      },
+      {
+        "generation": 2,
+        "mean": 4453.763,
+        "std": 1109.21
+      },
+      {
+        "generation": 3,
+        "mean": 3276.933,
+        "std": 1213.523
+      },
+      {
+        "generation": 4,
+        "mean": 3085.554,
+        "std": 960.179
+      },
+      {
+        "generation": 5,
+        "mean": 2905.226,
+        "std": 1021.92
+      },
+      {
+        "generation": 6,
+        "mean": 2727.602,
+        "std": 774.746
+      },
+      {
+        "generation": 7,
+        "mean": 2707.527,
+        "std": 746.978
+      },
+      {
+        "generation": 8,
+        "mean": 2707.527,
+        "std": 746.978
+      },
+      {
+        "generation": 9,
+        "mean": 2686.601,
+        "std": 718.088
+      },
+      {
+        "generation": 10,
+        "mean": 2686.15,
+        "std": 717.465
+      },
+      {
+        "generation": 11,
+        "mean": 2616.132,
+        "std": 752.763
+      },
+      {
+        "generation": 12,
+        "mean": 2616.132,
+        "std": 752.763
+      },
+      {
+        "generation": 13,
+        "mean": 2488.609,
+        "std": 573.529
+      },
+      {
+        "generation": 14,
+        "mean": 2488.609,
+        "std": 573.529
+      },
+      {
+        "generation": 15,
+        "mean": 2488.609,
+        "std": 573.529
+      },
+      {
+        "generation": 16,
+        "mean": 2221.999,
+        "std": 205.2
+      },
+      {
+        "generation": 17,
+        "mean": 2113.959,
+        "std": 82.63
+      },
+      {
+        "generation": 18,
+        "mean": 2113.959,
+        "std": 82.63
+      },
+      {
+        "generation": 19,
+        "mean": 2113.959,
+        "std": 82.63
+      },
+      {
+        "generation": 20,
+        "mean": 2059.887,
+        "std": 44.39
+      },
+      {
+        "generation": 21,
+        "mean": 2053.612,
+        "std": 40.354
+      },
+      {
+        "generation": 22,
+        "mean": 1999.403,
+        "std": 72.33
+      },
+      {
+        "generation": 23,
+        "mean": 1994.525,
+        "std": 78.308
+      },
+      {
+        "generation": 24,
+        "mean": 1994.525,
+        "std": 78.308
+      },
+      {
+        "generation": 25,
+        "mean": 1951.876,
+        "std": 39.343
+      },
+      {
+        "generation": 26,
+        "mean": 1928.303,
+        "std": 30.424
+      },
+      {
+        "generation": 27,
+        "mean": 1928.303,
+        "std": 30.424
+      },
+      {
+        "generation": 28,
+        "mean": 1921.956,
+        "std": 21.939
+      },
+      {
+        "generation": 29,
+        "mean": 1921.956,
+        "std": 21.939
+      },
+      {
+        "generation": 30,
+        "mean": 1914.523,
+        "std": 30.951
+      },
+      {
+        "generation": 31,
+        "mean": 1914.523,
+        "std": 30.951
+      },
+      {
+        "generation": 32,
+        "mean": 1914.523,
+        "std": 30.951
+      },
+      {
+        "generation": 33,
+        "mean": 1909.109,
+        "std": 38.003
+      },
+      {
+        "generation": 34,
+        "mean": 1909.109,
+        "std": 38.003
+      },
+      {
+        "generation": 35,
+        "mean": 1909.109,
+        "std": 38.003
+      },
+      {
+        "generation": 36,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 37,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 38,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 39,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 40,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 41,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 42,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 43,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 44,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 45,
+        "mean": 1894.148,
+        "std": 40.349
+      },
+      {
+        "generation": 46,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 47,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 48,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 49,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 50,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 51,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 52,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 53,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 54,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 55,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 56,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 57,
+        "mean": 1885.371,
+        "std": 28.122
+      },
+      {
+        "generation": 58,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 59,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 60,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 61,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 62,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 63,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 64,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 65,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 66,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 67,
+        "mean": 1863.912,
+        "std": 6.475
+      },
+      {
+        "generation": 68,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 69,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 70,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 71,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 72,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 73,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 74,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 75,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 76,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 77,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 78,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 79,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 80,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 81,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 82,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 83,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 84,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 85,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 86,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 87,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 88,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 89,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 90,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 91,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 92,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 93,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 94,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 95,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 96,
+        "mean": 1862.925,
+        "std": 7.348
+      },
+      {
+        "generation": 97,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 98,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 99,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 100,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 101,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 102,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 103,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 104,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 105,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 106,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 107,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 108,
+        "mean": 1856.965,
+        "std": 2.096
+      },
+      {
+        "generation": 109,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 110,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 111,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 112,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 113,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 114,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 115,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 116,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 117,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 118,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 119,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 120,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 121,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 122,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 123,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 124,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 125,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 126,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 127,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 128,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 129,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 130,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 131,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 132,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 133,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 134,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 135,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 136,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 137,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 138,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 139,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 140,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 141,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 142,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 143,
+        "mean": 1855.519,
+        "std": 3.446
+      },
+      {
+        "generation": 144,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 145,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 146,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 147,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 148,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 149,
+        "mean": 1850.805,
+        "std": 3.868
+      },
+      {
+        "generation": 150,
+        "mean": 1845.864,
+        "std": 7.555
+      }
+    ]
+  },
+  "ablation_sigma_heldout": {
+    "0.1": 1635.6,
+    "0.4": 1637.36,
+    "0.8": 1650.48
+  },
+  "ablation_train_pool_size": {
+    "20": {
+      "train": 1750.97,
+      "held_out": 1657.02
+    },
+    "120": {
+      "train": 1642.05,
+      "held_out": 1637.36
+    }
+  },
+  "runtime_sec": 673.1
+}
