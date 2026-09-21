@@ -63,10 +63,7 @@ No third-party runtime dependencies at all (`dependencies = []`).
 ## What it measures
 
 <!-- RESULTS:START -->
-*Every figure below is produced by `experiments/run_study.py` on CPU and stored in
-the committed [`results/evolution.json`](results/evolution.json); the tables are
-rendered by `experiments/make_report.py`. 3 seeds (0, 1, 2), 150 generations,
-120 training / 200 held-out instances of 30 jobs each.*
+*Every figure below is produced by `experiments/run_study.py` on CPU and stored in the committed [`results/evolution.json`](results/evolution.json); the tables are rendered by `experiments/make_report.py`. 3 seeds (0, 1, 2), 150 generations, 120 training / 200 held-out instances of 30 jobs each.*
 
 - objective: total weighted tardiness on 30-job single-machine instances (lower is better)
 
@@ -81,9 +78,7 @@ rendered by `experiments/make_report.py`. 3 seeds (0, 1, 2), 150 generations,
 | FIFO | 3893.6 | +57.2% |
 | **Evolved (population-ES)** | **1665.1** | — |
 
-`vs evolved` is how much worse each baseline is than the discovered rule (positive
-= the evolved rule is better). The evolved value is a mean over seeds (**±41**), so
-a small edge over the strongest baseline (WSPT) is within seed noise.
+`vs evolved` is how much worse each baseline is than the discovered rule (positive = the evolved rule is better). The evolved value is a mean over seeds (**±41**), so a small edge over the strongest baseline (WSPT) is within seed noise.
 
 ### Self-improvement curve (best-so-far, mean over seeds)
 
@@ -101,10 +96,7 @@ a small edge over the strongest baseline (WSPT) is within seed noise.
 | 135 | 1646 | 1665 |
 | 150 | 1646 | 1665 |
 
-From a **random** rule (2768) to 1665 (±41): a **39.8%** reduction. The
-self-improvement is large and unambiguous against the *start* and against
-FIFO/SPT/EDD/MIN-SLACK; the extra 3.0% over WSPT is a small edge near the
-seed-to-seed spread.
+From a **random** rule (2768) to 1665 (±41): a **39.8%** reduction. The self-improvement is large and unambiguous against the *start* and against FIFO/SPT/EDD/MIN-SLACK; the extra 3.0% over WSPT is a small edge that sits near the seed-to-seed spread.
 
 ### Ablations
 
@@ -117,21 +109,13 @@ Mutation strength sigma (held-out cost, 2 seeds):
 - sigma=0.4: 1637
 - sigma=0.8: 1650
 
-Training-pool size → generalization (held-out cost, 2 seeds). The search only ever
-sees the training pool, so held-out cost is the honest read; the small pool
-over-fits its few instances and transfers worse.
+Training-pool size → generalization (held-out cost, 2 seeds). The search only ever sees the training pool, so held-out cost is the honest read; the small pool over-fits its few instances and transfers worse.
 - pool=20: held-out **1657** (train on that pool's own instances: 1751)
 - pool=120: held-out **1637** (train on that pool's own instances: 1642)
 
 ### What the agent discovered
 
-Mean evolved weights: `inv_proc=1.564`, `weight=0.257`, `slack=0.089`,
-`wratio=7.447`, `arrival=-0.047`. A dominant positive `wratio` term with a
-secondary `inv_proc` term means the search **rediscovered WSPT and blended in some
-shortest-processing-time pressure from scratch**, never being shown either rule.
-That blend decisively beats FIFO/SPT/EDD/MIN-SLACK and *matches or very slightly
-edges* the WSPT baseline — the honest headline is the ~40% climb from a random
-rule, not a big lead over the best textbook rule.
+Mean evolved weights: `inv_proc=1.564`, `weight=0.257`, `slack=0.089`, `wratio=7.447`, `arrival=-0.047`. A dominant positive `wratio` term with a secondary `inv_proc` term means the search **rediscovered WSPT and blended in some shortest-processing-time pressure from scratch**, never being shown either rule. That blend decisively beats FIFO/SPT/EDD/MIN-SLACK and *matches or very slightly edges* the WSPT baseline — the honest headline is the ~40% climb from a random rule, not a big lead over the best textbook rule.
 <!-- RESULTS:END -->
 
 ## Layout

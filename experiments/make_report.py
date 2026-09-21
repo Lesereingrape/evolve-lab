@@ -17,10 +17,17 @@ def build(data: dict) -> str:
     cfg = data["config"]
     main = data["main"]
     out: list[str] = []
+    seeds = ", ".join(str(s) for s in cfg["seeds"])
+    out.append("*Every figure below is produced by `experiments/run_study.py` on CPU "
+               "and stored in the committed "
+               "[`results/evolution.json`](results/evolution.json); the tables are "
+               f"rendered by `experiments/make_report.py`. {len(cfg['seeds'])} seeds "
+               f"({seeds}), {cfg['generations']} generations, {cfg['n_train']} "
+               f"training / {cfg['n_test']} held-out instances of {cfg['n_jobs']} "
+               "jobs each.*")
+    out.append("")
     out.append(f"- objective: total weighted tardiness on {cfg['n_jobs']}-job "
                f"single-machine instances (lower is better)")
-    out.append(f"- train / held-out pools: {cfg['n_train']} / {cfg['n_test']} "
-               f"instances; generations: {cfg['generations']}; seeds: {cfg['seeds']}")
     out.append("")
 
     out.append("### Held-out cost: evolved rule vs textbook dispatching rules\n")
@@ -35,8 +42,8 @@ def build(data: dict) -> str:
     out.append("")
     out.append("`vs evolved` is how much worse each baseline is than the discovered "
                "rule (positive = the evolved rule is better). The evolved value is a "
-               f"mean over seeds (**±{ev_std:.0f}** across seeds), so a small edge over "
-               "the strongest baseline (WSPT) is within seed noise — see the note below.")
+               f"mean over seeds (**±{ev_std:.0f}**), so a small edge over the "
+               "strongest baseline (WSPT) is within seed noise.")
     out.append("")
 
     out.append("### Self-improvement curve (best-so-far, mean over seeds)\n")
@@ -50,8 +57,9 @@ def build(data: dict) -> str:
     out.append(f"From a **random** rule ({main['start']:.0f}) to {ev:.0f} "
                f"(±{ev_std:.0f}): a **{main['reduction_vs_start_pct']}%** reduction. "
                f"The self-improvement is large and unambiguous against the *start* "
-               f"and against FIFO/SPT/EDD/MINSLACK; the extra {main['gain_vs_best_baseline_pct']}% "
-               f"over WSPT is a small edge that sits near the seed-to-seed spread.")
+               f"and against FIFO/SPT/EDD/MIN-SLACK; the extra "
+               f"{main['gain_vs_best_baseline_pct']}% over WSPT is a small edge that "
+               f"sits near the seed-to-seed spread.")
     out.append("")
 
     out.append("### Ablations\n")
@@ -64,9 +72,8 @@ def build(data: dict) -> str:
     for s, v in sorted(data["ablation_sigma_heldout"].items(), key=lambda kv: float(kv[0])):
         out.append(f"- sigma={s}: {v:.0f}")
     out.append("")
-    out.append("Training-pool size → generalization (held-out cost, 2 seeds):")
-    out.append("")
-    out.append("The search only ever sees the training pool, so held-out cost is the "
+    out.append("Training-pool size → generalization (held-out cost, 2 seeds). The "
+               "search only ever sees the training pool, so held-out cost is the "
                "honest read; the small pool over-fits its few instances and transfers "
                "worse.")
     for nt, v in sorted(data["ablation_train_pool_size"].items(), key=lambda kv: int(kv[0])):
