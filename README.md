@@ -153,8 +153,9 @@ aggregates the README shows, so the tables can be audited rather than believed:
   column counts, a dash-only separator per column) — a byte-comparison test happily
   ships a table GitHub refuses to render, and that bug was found in a sibling repo.
 - `tests/test_readme_size_claims.py` re-derives the hand-written figures outside the
-  block ("~40% climb", "~3% edge over WSPT", the 5-weight genome, the pool sizes) from
-  the artifact instead of trusting the prose.
+  block ("~40% climb", "~3% edge over WSPT", the 5-weight genome, the pool sizes, the
+  "~10 minutes" the Quickstart and the limitations section both promise) from the
+  artifact instead of trusting the prose.
 
 Every `±` printed in this file is the **population** standard deviation over the seeded
 runs (`statistics.pstdev`, divided by n): the seeds are the entire repetition, so there

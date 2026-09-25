@@ -2,8 +2,8 @@
 
 The results block is byte-pinned to ``results/evolution.json`` by
 ``test_readme_matches_results.py``; the claims in the prose *around* that block ("~40%
-climb", "~3% edge over WSPT", "5 real-valued weights", the pool sizes) are typed by
-hand, so each one is re-derived here from the artifact or the code instead.
+climb", "~3% edge over WSPT", "5 real-valued weights", the pool sizes, the wall-clock
+budgets) are typed by hand, so each one is re-derived here from the artifact or the code.
 """
 
 from __future__ import annotations
@@ -88,6 +88,22 @@ def test_the_published_wall_clock_is_the_one_the_artifact_records():
     assert float(named[0]) == artifact["runtime_sec"], (
         f"README says the published run took {named[0]}s, "
         f"results/evolution.json records {artifact['runtime_sec']}s")
+
+
+def test_the_promised_study_length_is_the_length_that_was_measured():
+    """The blurb and the limitations section both budget the study in minutes.
+
+    Two sentences make the same promise, so they are checked as a set against one
+    artifact field: a study that grows past its advertised budget should have to move
+    both mentions, not quietly outlive one of them.
+    """
+    budgets = {int(m.group(1)) for m in re.finditer(r"~(\d+) minutes", README)}
+    assert budgets, "the README no longer budgets the full study; drop this guard with it"
+    minutes = DATA["runtime_sec"] / 60.0
+    for budget in budgets:
+        assert 0.5 * budget <= minutes <= 2.0 * budget, (
+            f"the README calls the study a ~{budget}-minute job; the committed run took "
+            f"{minutes:.1f} minutes")
 
 
 def test_the_documented_rerun_writes_a_relative_scratch_file():
