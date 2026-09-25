@@ -185,8 +185,10 @@ the committed artifact field for field — the five
 baseline scores, both main curves, all three ablation tables and every raw per-seed
 trace (3 seeds × 151 generations × train and held-out, plus the hill-climb traces) —
 and the only number that moved was `runtime_sec` (641.5s against the published 611.1s,
-with another job competing for the CPU). We verified that on one machine, which is what
-"reproducible" claims here; we are not claiming we have run it on others.
+with another job competing for the CPU — of those two only the second is still in this repo,
+as `runtime_sec` in the committed artifact, and a test reads it back; the scratch file was
+thrown away). We verified that on one machine, which is what "reproducible" claims here; we
+are not claiming we have run it on others.
 
 ## Honest limitations
 
