@@ -70,7 +70,7 @@ No third-party runtime dependencies at all (`dependencies = []`).
 *Every figure below is produced by `experiments/run_study.py` on CPU and stored in the committed [`results/evolution.json`](results/evolution.json); the tables are rendered by `experiments/make_report.py`. 3 seeds (0, 1, 2), 150 generations, 120 training / 200 held-out instances of 30 jobs each.*
 
 - objective: total weighted tardiness on 30-job single-machine instances (lower is better)
-- measured under: Python 3.13.7 on Windows-11-10.0.26200-SP0, cpu (stdlib float arithmetic; no BLAS or thread-count reduction) — the search is a seeded pure-Python computation, so `experiments/run_study.py --out /tmp/again.json` reruns it exactly and `make_report.py --write` re-renders these tables; only `runtime_sec` is allowed to differ
+- measured under: Python 3.13.7 on Windows-11-10.0.26200-SP0, cpu (stdlib float arithmetic; no BLAS or thread-count reduction) — the search is a seeded pure-Python computation, so `experiments/run_study.py --out again-check.json` reruns it exactly and `make_report.py --write` re-renders these tables; only `runtime_sec` is allowed to differ
 - every mean, std and curve point below is reduced from the raw per-seed traces stored under `per_seed`, and `tests/test_artifact_is_internally_consistent.py` recomputes them from those traces
 
 ### Held-out cost: evolved rule vs textbook dispatching rules
@@ -164,19 +164,24 @@ reader recompute the spread from `per_seed` and get the same digits.
 To check a rerun against the published artifact:
 
 ```bash
-python experiments/run_study.py --out /tmp/again.json   # results/ stays untouched
+python experiments/run_study.py --out again-check.json   # results/ stays untouched
 python - <<'PY'
 import json
 a = json.load(open("results/evolution.json", encoding="utf-8"))
-b = json.load(open("/tmp/again.json", encoding="utf-8"))
+b = json.load(open("again-check.json", encoding="utf-8"))
 allowed = {"environment", "per_seed", "runtime_sec"}
 print([k for k in set(a) & set(b) - allowed if a[k] != b[k]] or "every field matched")
 PY
 ```
 
+The scratch file is a relative path on purpose: Git-Bash rewrites a `/tmp/...`
+argument before the CLI sees it, while the `open()` in the same snippet would resolve
+it against the drive root, so the two halves of a `/tmp` handoff never meet on Windows.
+
 The search is pure-stdlib: seeded `random.Random` draws and IEEE-754 doubles, with no
 BLAS or thread-count-dependent reduction behind it, so this study is not pinned to the
-machine that measured it the way a torch one is. The rerun we actually did reproduced the committed artifact field for field — the five
+machine that measured it the way a torch one is. The rerun we actually did reproduced
+the committed artifact field for field — the five
 baseline scores, both main curves, all three ablation tables and every raw per-seed
 trace (3 seeds × 151 generations × train and held-out, plus the hill-climb traces) —
 and the only number that moved was `runtime_sec` (641.5s against the published 611.1s,

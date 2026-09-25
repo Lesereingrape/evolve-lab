@@ -43,7 +43,7 @@ def build(data: dict) -> str:
     env = data["environment"]
     out.append(f"- measured under: Python {env['python']} on {env['platform']}, "
                f"{env['device']} — the search is a seeded pure-Python computation, so "
-               "`experiments/run_study.py --out /tmp/again.json` reruns it exactly and "
+               "`experiments/run_study.py --out again-check.json` reruns it exactly and "
                "`make_report.py --write` re-renders these tables; only `runtime_sec` "
                "is allowed to differ")
     out.append("- every mean, std and curve point below is reduced from the raw "
