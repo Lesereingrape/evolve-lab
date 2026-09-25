@@ -37,14 +37,14 @@ def _demo(seed: int, generations: int) -> None:
           "\nother non-zero terms are the learned blend on top of it.")
 
 
-def _study(generations: int) -> None:
+def _study(generations: int, out: str) -> None:
     import sys
     from pathlib import Path
 
     sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "experiments"))
     from run_study import run_study
 
-    run_study()
+    run_study(generations=generations, out=out)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -55,11 +55,14 @@ def main(argv: list[str] | None = None) -> int:
     d.add_argument("--generations", type=int, default=150)
     s = sub.add_parser("study", help="full study -> results/evolution.json")
     s.add_argument("--generations", type=int, default=150)
+    s.add_argument("--out", default="results/evolution.json",
+                   help="where to write the artifact; point it at a scratch path to "
+                        "rerun and diff against the committed one")
     args = parser.parse_args(argv)
     if args.cmd == "demo":
         _demo(args.seed, args.generations)
     else:
-        _study(args.generations)
+        _study(args.generations, args.out)
     return 0
 
 

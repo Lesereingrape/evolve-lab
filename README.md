@@ -5,7 +5,10 @@ heuristic discovery* loop that systems like **AlphaEvolve** and the **Darwin
 Gödel Machine** run at industrial scale. A population of candidate
 **job-dispatching rules** is evolved purely from the feedback of an **exact
 tardiness simulator** — no learned reward model, no teacher, no hand-written
-final policy. On CPU, in seconds, with the standard library alone.
+final policy. On CPU, with the standard library alone: one `evolab demo` run of 150
+generations timed 54s on this machine (measured while the study ran alongside it, so
+uncontended it is faster), and the full three-seed study with all its ablations is
+~10 minutes — its published wall-clock is recorded as `runtime_sec` in the artifact.
 
 > The point is *honest, reproducible* self-improvement: every number in the
 > Results section below is measured by `experiments/run_study.py` on this
@@ -56,6 +59,7 @@ champion overfits, the two curves diverge — a property we surface, not hide.
 pip install -e .
 evolab demo --seed 0            # one seeded run: random rule -> near-optimal
 evolab study                    # full multi-seed study -> results/evolution.json
+python experiments/make_report.py --write  # splice the README block from the JSON
 ```
 
 No third-party runtime dependencies at all (`dependencies = []`).
@@ -66,6 +70,8 @@ No third-party runtime dependencies at all (`dependencies = []`).
 *Every figure below is produced by `experiments/run_study.py` on CPU and stored in the committed [`results/evolution.json`](results/evolution.json); the tables are rendered by `experiments/make_report.py`. 3 seeds (0, 1, 2), 150 generations, 120 training / 200 held-out instances of 30 jobs each.*
 
 - objective: total weighted tardiness on 30-job single-machine instances (lower is better)
+- measured under: Python 3.13.7 on Windows-11-10.0.26200-SP0, cpu (stdlib float arithmetic; no BLAS or thread-count reduction) — the search is a seeded pure-Python computation, so `experiments/run_study.py --out /tmp/again.json` reruns it exactly and `make_report.py --write` re-renders these tables; only `runtime_sec` is allowed to differ
+- every mean, std and curve point below is reduced from the raw per-seed traces stored under `per_seed`, and `tests/test_artifact_is_internally_consistent.py` recomputes them from those traces
 
 ### Held-out cost: evolved rule vs textbook dispatching rules
 
@@ -115,7 +121,7 @@ Training-pool size → generalization (held-out cost, 2 seeds). The search only 
 
 ### What the agent discovered
 
-Mean evolved weights: `inv_proc=1.564`, `weight=0.257`, `slack=0.089`, `wratio=7.447`, `arrival=-0.047`. A dominant positive `wratio` term with a secondary `inv_proc` term means the search **rediscovered WSPT and blended in some shortest-processing-time pressure from scratch**, never being shown either rule. That blend decisively beats FIFO/SPT/EDD/MIN-SLACK and *matches or very slightly edges* the WSPT baseline — the honest headline is the ~40% climb from a random rule, not a big lead over the best textbook rule.
+Mean evolved weights: `inv_proc=1.564`, `weight=0.257`, `slack=0.089`, `wratio=7.447`, `arrival=-0.047`. A dominant positive `wratio` term with a secondary `inv_proc` term means the search **rediscovered WSPT and blended in some shortest-processing-time pressure from scratch**, never being shown either rule. That blend decisively beats FIFO/SPT/EDD/MIN-SLACK and *matches or very slightly edges* the WSPT baseline — the honest headline is the 39.8% climb from a random rule, not a big lead over the best textbook rule.
 <!-- RESULTS:END -->
 
 ## Layout
@@ -124,12 +130,53 @@ Mean evolved weights: `inv_proc=1.564`, `weight=0.257`, `slack=0.089`, `wratio=7
 src/evolab/
   policy.py    # instance generator, exact simulator, 5 textbook rules, parametric rule
   evolve.py    # (mu,lambda)-ES and (1+1)-EA over rule weights
-  cli.py       # `evolab demo` / `evolab study`
+  cli.py       # `evolab demo` / `evolab study [--out PATH]`
+  provenance.py # the python/platform/device this run was measured on
 experiments/
   run_study.py   # baselines + curve + mode/sigma/pool-size ablations -> results/*.json
-  make_report.py # render README tables straight from the committed JSON
-tests/         # exact-cost checks + search invariants (determinism, monotone best-so-far)
+                 # (--out writes a scratch artifact so a rerun can be diffed)
+  make_report.py # render README tables straight from the committed JSON (--write splices)
+tests/         # exact-cost checks + search invariants (determinism, monotone best-so-far),
+               # plus the four integrity guards below
 ```
+
+## Reproducing and honesty
+
+`results/evolution.json` commits the raw per-seed best-so-far curves next to the
+aggregates the README shows, so the tables can be audited rather than believed:
+
+- `tests/test_artifact_is_internally_consistent.py` recomputes every mean, std,
+  headline percentage and ablation number from those per-seed traces.
+- `tests/test_readme_matches_results.py` byte-compares the README block with what
+  `make_report.py` renders, so prose and numbers cannot drift apart.
+- `tests/test_readme_tables_render.py` checks the *shape* of every table (consistent
+  column counts, a dash-only separator per column) — a byte-comparison test happily
+  ships a table GitHub refuses to render, and that bug was found in a sibling repo.
+- `tests/test_readme_size_claims.py` re-derives the hand-written figures outside the
+  block ("~40% climb", "~3% edge over WSPT", the 5-weight genome, the pool sizes) from
+  the artifact instead of trusting the prose.
+
+To check a rerun against the published artifact:
+
+```bash
+python experiments/run_study.py --out /tmp/again.json   # results/ stays untouched
+python - <<'PY'
+import json
+a = json.load(open("results/evolution.json", encoding="utf-8"))
+b = json.load(open("/tmp/again.json", encoding="utf-8"))
+allowed = {"environment", "per_seed", "runtime_sec"}
+print([k for k in set(a) & set(b) - allowed if a[k] != b[k]] or "every field matched")
+PY
+```
+
+The search is pure-stdlib: seeded `random.Random` draws and IEEE-754 doubles, with no
+BLAS or thread-count-dependent reduction behind it, so this study is not pinned to the
+machine that measured it the way a torch one is. The rerun we actually did reproduced the committed artifact field for field — the five
+baseline scores, both main curves, all three ablation tables and every raw per-seed
+trace (3 seeds × 151 generations × train and held-out, plus the hill-climb traces) —
+and the only number that moved was `runtime_sec` (641.5s against the published 611.1s,
+with another job competing for the CPU). We verified that on one machine, which is what
+"reproducible" claims here; we are not claiming we have run it on others.
 
 ## Honest limitations
 
@@ -143,8 +190,9 @@ tests/         # exact-cost checks + search invariants (determinism, monotone be
 - Small training pools generalize worse: a 20-instance pool yields a champion that
   is measurably worse on held-out instances than the 120-instance pool's, and we
   include that ablation rather than hiding it.
-- Results are single-machine, fixed-seed, CPU-only and therefore fully
-  reproducible: `python -m pytest` plus `evolab study` regenerate every figure.
+- Results are single-machine, fixed-seed and CPU-only; the full study is ~10 minutes,
+  not the "seconds" a single `evolab demo` run takes. See **Reproducing and honesty**
+  for how to diff a rerun against the published artifact.
 
 ## License
 

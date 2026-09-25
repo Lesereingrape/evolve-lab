@@ -1,9 +1,21 @@
-"""Render README result tables directly from results/evolution.json."""
+"""Render README result tables directly from results/evolution.json.
+
+    python experiments/make_report.py [--write] [--results PATH]
+
+``--write`` splices the rendered block between the ``RESULTS:START``/``RESULTS:END``
+markers in README.md, so the published prose is generated from the artifact instead of
+retyped by hand; ``tests/test_readme_matches_results.py`` fails if the two drift.
+"""
 
 from __future__ import annotations
 
+import argparse
 import json
+import re
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+START, END = "<!-- RESULTS:START -->", "<!-- RESULTS:END -->"
 
 
 def _sample(curve, step=15):
@@ -28,6 +40,16 @@ def build(data: dict) -> str:
     out.append("")
     out.append(f"- objective: total weighted tardiness on {cfg['n_jobs']}-job "
                f"single-machine instances (lower is better)")
+    env = data["environment"]
+    out.append(f"- measured under: Python {env['python']} on {env['platform']}, "
+               f"{env['device']} — the search is a seeded pure-Python computation, so "
+               "`experiments/run_study.py --out /tmp/again.json` reruns it exactly and "
+               "`make_report.py --write` re-renders these tables; only `runtime_sec` "
+               "is allowed to differ")
+    out.append("- every mean, std and curve point below is reduced from the raw "
+               "per-seed traces stored under `per_seed`, and "
+               "`tests/test_artifact_is_internally_consistent.py` recomputes them from "
+               "those traces")
     out.append("")
 
     out.append("### Held-out cost: evolved rule vs textbook dispatching rules\n")
@@ -68,11 +90,12 @@ def build(data: dict) -> str:
     out.append(f"- population-ES: **{ab['population_heldout']:.0f}**")
     out.append(f"- greedy (1+1) hill-climb: {ab['hill_climb_heldout']:.0f}")
     out.append("")
-    out.append("Mutation strength sigma (held-out cost, 2 seeds):")
+    n_abl = len(cfg["ablation_seeds"])
+    out.append(f"Mutation strength sigma (held-out cost, {n_abl} seeds):")
     for s, v in sorted(data["ablation_sigma_heldout"].items(), key=lambda kv: float(kv[0])):
         out.append(f"- sigma={s}: {v:.0f}")
     out.append("")
-    out.append("Training-pool size → generalization (held-out cost, 2 seeds). The "
+    out.append(f"Training-pool size → generalization (held-out cost, {n_abl} seeds). The "
                "search only ever sees the training pool, so held-out cost is the "
                "honest read; the small pool over-fits its few instances and transfers "
                "worse.")
@@ -90,10 +113,28 @@ def build(data: dict) -> str:
                "shortest-processing-time pressure from scratch**, never being shown "
                "either rule. That blend decisively beats FIFO/SPT/EDD/MIN-SLACK and "
                "*matches or very slightly edges* the WSPT baseline — the honest "
-               "headline is the ~40% climb from a random rule, not a big lead over "
-               "the best textbook rule.")
+               f"headline is the {main['reduction_vs_start_pct']}% climb from a random "
+               "rule, not a big lead over the best textbook rule.")
     return "\n".join(out)
 
 
+def _write(rendered: str, readme: Path) -> None:
+    text = readme.read_text(encoding="utf-8")
+    pattern = re.compile(re.escape(START) + r"\n.*?\n" + re.escape(END), re.DOTALL)
+    assert pattern.search(text), f"README is missing the {START}/{END} markers"
+    readme.write_text(pattern.sub(lambda _: f"{START}\n{rendered}\n{END}", text),
+                      encoding="utf-8")
+
+
 if __name__ == "__main__":
-    print(build(json.loads(Path("results/evolution.json").read_text())))
+    ap = argparse.ArgumentParser(prog="make_report")
+    ap.add_argument("--results", default=str(ROOT / "results" / "evolution.json"))
+    ap.add_argument("--write", action="store_true",
+                    help="splice the rendered block into README.md instead of printing")
+    args = ap.parse_args()
+    block = build(json.loads(Path(args.results).read_text(encoding="utf-8")))
+    if args.write:
+        _write(block, ROOT / "README.md")
+        print("README results block rewritten")
+    else:
+        print(block)
