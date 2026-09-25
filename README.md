@@ -156,6 +156,11 @@ aggregates the README shows, so the tables can be audited rather than believed:
   block ("~40% climb", "~3% edge over WSPT", the 5-weight genome, the pool sizes) from
   the artifact instead of trusting the prose.
 
+Every `±` printed in this file is the **population** standard deviation over the seeded
+runs (`statistics.pstdev`, divided by n): the seeds are the entire repetition, so there
+is no larger pool of runs being sampled from, and naming the convention is what lets a
+reader recompute the spread from `per_seed` and get the same digits.
+
 To check a rerun against the published artifact:
 
 ```bash

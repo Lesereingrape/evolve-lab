@@ -63,3 +63,16 @@ def test_generations_claim_matches_the_recorded_curves():
     longest = max(len(r["main_curve_train"]) for r in DATA["per_seed"].values())
     assert longest == DATA["config"]["generations"] + 1, (
         "every seed's curve should span generation 0 through the last generation")
+
+
+def test_readme_names_the_std_convention_the_tables_use():
+    """`+/-` is ambiguous unless the file says which divisor produced it.
+
+    The published spreads are the population standard deviation over seeds, so the
+    README has to use that word: a reader who recomputed the other convention would
+    land on a different number and conclude the tables were wrong.
+    """
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    assert re.search("population[^.]{0,60}standard\\s+deviation", readme), (
+        "the README no longer states which standard-deviation convention its "
+        "`+/-` columns use")
